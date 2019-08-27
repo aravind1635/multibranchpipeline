@@ -1,0 +1,8 @@
+node ('docker') {
+  withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'ef281da1-c659-4cdb-8b25-b41da8d6ea3b',
+  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+
+  sh 'echo uname=$USERNAME pwd=$PASSWORD'
+  }
+  }
+}
