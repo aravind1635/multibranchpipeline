@@ -4,5 +4,6 @@ node ('docker') {
 
   sh 'echo uname=$USERNAME pwd=$PASSWORD'
   sh 'git clone https://$USERNAME:$PASSWORD@github.com/GluMobile/quizup-monorepo.git'
+  sh 'git clone https://$USERNAME:$PASSWORD@github.com/GluMobile/quizup-js-logins.git'
   }
 }
