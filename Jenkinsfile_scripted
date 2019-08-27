@@ -4,5 +4,4 @@ node ('docker') {
 
   sh 'echo uname=$USERNAME pwd=$PASSWORD'
   }
-  }
 }
