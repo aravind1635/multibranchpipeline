@@ -14,9 +14,9 @@ pipeline {
                //sh "echo Build number is env.BUILD_NUMBER"
                echo "Build number is ${BUILD_NUMBER}"
                //sh "echo Build date is `date '+%Y%m%d%H%M%S'`"
-               DATE=`date '+%Y%m%d%H%M%S`
+               DATE=sh(date '+%Y%m%d%H%M%S')
                echo "Build date is ${DATE}"
-               shortCommit = `git rev-parse HEAD`
+               shortCommit=sh(git rev-parse HEAD)
                echo "Commit ID is ${shortCommit}"
            }
         }
