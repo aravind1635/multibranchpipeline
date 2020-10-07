@@ -13,17 +13,16 @@ pipeline {
         }
         stage('setting build properties') {
            steps {
-               echo "Branch name is ${BRANCH_NAME}"
+               //echo "Branch name is ${BRANCH_NAME}"
                echo "Build number is ${BUILD_NUMBER}"
                script {
                    shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
                    date_value = sh(script: "date '+%Y%m%d%H%M%S'", returnStdout: true).toString().trim()
                    branch = sh(script: "echo ${env.JOB_NAME} | cut -d/ -f2", returnStdout: true).toString().trim()
                    echo "Commit ID is ${shortCommit}"
-                   echo "branch is ${date_value}"
-                   
+                   echo "date is ${date_value}"
+                   echo "branch is ${branch}"
                }
-
            }
         }
     }
