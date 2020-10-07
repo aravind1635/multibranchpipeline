@@ -21,13 +21,16 @@ pipeline {
                    echo "date is ${build_date}"
                    echo "branch is ${build_branch}"
                    echo "Build number is ${BUILD_NUMBER}"
-               sh '''
-               sed -i "s/@BUILDNUMBER@/${BUILD_NUMBER}/g" properties.json
-               sed -i "s/@BUILDDATE@/${build_date}/g" properties.json
-               sed -i "s/@BUILDBRANCH@/${build_branch}/g" properties.json
-               sed -i "s/@BUILDCOMMIT@/${build_commit}/g" properties.json
-               cat properties.json
-               '''
+               //sh '''
+               //sed -i "s/@BUILDNUMBER@/${BUILD_NUMBER}/g" properties.json
+               //sed -i "s/@BUILDDATE@/${build_date}/g" properties.json
+               //sed -i "s/@BUILDBRANCH@/${build_branch}/g" properties.json
+               //sed -i "s/@BUILDCOMMIT@/${build_commit}/g" properties.json
+               //cat properties.json
+               //'''
+                   sh "sed -i 's/@BUILDNUMBER@/${BUILD_NUMBER}/g' properties.json"
+                   sh "sed -i 's/@BUILDCOMMIT@/${build_commit}/g' properties.json"
+                   sh "cat properties.json"
                }
            }
         }
