@@ -1,0 +1,39 @@
+[
+               {
+                              "group": "self",
+                              "properties": {
+                                             "buildNumber": {
+                                                            "envName": "buildNumber",
+                                                            "propertyName": "buildNumber",
+                                                            "defaultValue": "@BUILDNUMBER@",
+                                                            "description": "Incremental Build Number",
+                                                            "type": "string"
+                                             },
+                                             "buildDate": {
+                                                            "envName": "buildDate",
+                                                            "propertyName": "buildDate",
+                                                            "defaultValue": "@BUILDDATE@",
+                                                            "description": "Date and Time of Build",
+                                                            "type": "string"
+                                             },
+                                             "buildBranch": {
+                                                            "envName": "buildBranch",
+                                                            "propertyName": "buildBranch",
+                                                            "defaultValue": "@BUILDBRANCH@",
+                                                            "description": "GIT Branch from where code was built",
+                                                            "type": "string"
+                                             },
+                                             "buildCommit": {
+                                                            "envName": "buildCommit",
+                                                            "propertyName": "buildCommit",
+                                                            "defaultValue": "@BUILDCOMMIT@",
+                                                            "description": "GIT Branch from where code was built",
+                                                            "type": "string"
+                                             }
+                              },
+                              "editor": {
+                                             "language": "java",
+                                             "editOnDblClick": false
+                              }
+               }
+]
