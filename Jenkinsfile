@@ -22,7 +22,6 @@ pipeline {
                    echo "Commit ID is ${shortCommit}"
                    echo "date is ${date_value}"
                    echo "branch is ${branch}"
-                   ls -alrt
                }
                sh '''
                ls -alrt
