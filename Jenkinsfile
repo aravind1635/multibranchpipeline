@@ -22,6 +22,8 @@ pipeline {
                echo "Build date is ${DATE}"
                //shortCommit=sh(git rev-parse HEAD)
                echo "Commit ID is ${COMMIT}"
+               shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
+               echo "Commit ID is ${shortCommit}"
            }
         }
     }
