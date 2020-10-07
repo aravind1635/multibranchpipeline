@@ -24,6 +24,8 @@ pipeline {
                echo "Commit ID is ${COMMIT}"
                shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
                echo "Commit ID is ${shortCommit}"
+               date_value = sh(script: "date", returnStdout: true).toString().trim()
+               echo "date_value is ${date_value}"
            }
         }
     }
