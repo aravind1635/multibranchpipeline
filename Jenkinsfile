@@ -14,19 +14,19 @@ pipeline {
         stage('setting build properties') {
            steps {
                script {
-                   BUILD_COMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
-                   BUILD_DATE = sh(script: "date '+%Y%m%d%H%M%S'", returnStdout: true).toString().trim()
-                   BUILD_BRANCH = sh(script: "echo ${env.JOB_NAME} | cut -d/ -f2", returnStdout: true).toString().trim()
-                   echo "Commit ID is ${BUILD_COMMIT}"
-                   echo "date is ${BUILD_DATE}"
-                   echo "branch is ${BUILD_BRANCH}"
+                   build_commit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
+                   build_date = sh(script: "date '+%Y%m%d%H%M%S'", returnStdout: true).toString().trim()
+                   build_branch = sh(script: "echo ${env.JOB_NAME} | cut -d/ -f2", returnStdout: true).toString().trim()
+                   echo "Commit ID is ${build_commit}"
+                   echo "date is ${build_date}"
+                   echo "branch is ${build_branch}"
                    echo "Build number is ${BUILD_NUMBER}"
                }
                sh '''
                sed -i "s/@BUILDNUMBER@/${BUILD_NUMBER}/g" properties.json
-               sed -i "s/@BUILDDATE@/${BUILD_DATE}/g" properties.json
-               sed -i "s/@BUILDBRANCH@/${BUILD_BRANCH}/g" properties.json
-               sed -i "s/@BUILDCOMMIT@/${BUILD_COMMIT}/g" properties.json
+               sed -i "s/@BUILDDATE@/${build_date}/g" properties.json
+               sed -i "s/@BUILDBRANCH@/${build_branch}/g" properties.json
+               sed -i "s/@BUILDCOMMIT@/${build_commit}/g" properties.json
                cat properties.json
                '''
 
